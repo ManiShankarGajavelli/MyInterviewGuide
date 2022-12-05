@@ -363,6 +363,7 @@ Object is a super class of all classes in java.
     - Exception
       - Checked Exception
         - FileNotFoundException
+        - SqlException
       - UnChecked Exception
         - NullPointerException
     - Errors
