@@ -376,5 +376,23 @@ Object is a super class of all classes in java.
   - Exceptions that are not handled by try-Catch block are called Exceptions.
 - Checked Exceptions
   - Exceptions that are identified by Compiler are called Checked Exceptions.
+~~~java
+	try {
+	File txtFile = new File("C:/Folder/Sample.txt");
+	}catch(FileNotFoundException fnfe){
+		System.out.println(fnfe.toString());
+	}
+~~~
 - UnChecked Exceptions
   - Exceptions that are identified by Compiler are called UnChecked Exceptions.
+
+- try 
+  - it is used to specify that the certain block might get exception.
+- catch
+  - how to handle the exception in try block.
+- finally
+  - it will be called even if we got the exception or not.
+- throw
+  - used to throw our own exceptions.
+- throws 
+  - it was used to throw our exception to the calling method.
