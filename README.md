@@ -1,4 +1,4 @@
-# MyInerviewGuide
+# MyInterviewGuide
 
 ### Comment
 - Single Line Comments
