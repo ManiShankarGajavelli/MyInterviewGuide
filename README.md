@@ -11,7 +11,7 @@
 ~~~java
 /**
 * This is a Doc Comment
-* @author  Mani Shankar
+* @author  Mani Shankar G
 * @version 1.0
 */
 public class HelloWorld {
