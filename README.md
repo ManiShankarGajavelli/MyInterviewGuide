@@ -373,7 +373,7 @@ Object is a super class of all classes in java.
 - Exception
   - Exceptions that are handled by try-Catch block are called Exceptions.
 - Errors
-  - Exceptions that are not handled by try-Catch block are called Exceptions.
+  - Exceptions that are not handled by try-Catch block are called Errors.
 - Checked Exceptions
   - Exceptions that are identified by Compiler are called Checked Exceptions.
 ~~~java
@@ -396,3 +396,16 @@ Object is a super class of all classes in java.
   - used to throw our own exceptions.
 - throws 
   - it was used to throw our exception to the calling method.
+
+## Few Exceptions Examples:
+### Arthmetic Exception
+~~~java
+ int x = 100/0; // divide by Zero exception
+~~~ 
+
+### Null Pointer Exception:
+~~~java
+ String  x = null;
+ System.out.println(x.length()) // divide by Zero exception
+~~~ 
+
