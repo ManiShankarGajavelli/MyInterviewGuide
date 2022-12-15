@@ -409,3 +409,121 @@ Object is a super class of all classes in java.
  System.out.println(x.length()) // divide by Zero exception
 ~~~ 
 
+### Garbage Collector
+
+
+
+
+
+
+
+
+
+
+
+### Threads
+- An independent program execution is called Thread.
+- A Thread is lightweight,independent and it take less memory and less processing power.
+- Java Supports multithreading.
+- A Thread can be created in two ways.
+  - extending thread class.
+  - implementing runnable interface.
+
+
+### Thread LifeCycle
+  - New 
+  - runnable
+  - running
+  - Blocked/Waiting
+  - Terminated
+
+
+- Synchronization
+  - an object doesn't allow multiple thread to access a single resource at a time is called Synchronization.
+  - Synchronized keyword.
+
+### Serialization
+- The ability to convert a java object to file/IO Stream is called Serialization.
+
+
+### Arrays
+- An array is an indexed collection of fixed number of homogeneous data elements.
+- Arrays are fixed in size.
+- performance is better in arrays compared to collections
+- Arrays does not use any default algorithm to store or retrive data.
+- arrays can hold both primitives and object types.
+- arrays doesn't have any default methods.
+- Can be traversed using loops like for,while,do while loops.
+
+
+### Collections
+![alt text](./java-collection-hierarchy.png)
+
+- If we want to represent a group of individual objects as a single entity, then we can use collections.
+- there are different types based on different algorithms. they are 
+  - Collections(I)
+    - List(I)
+      - ArrayList(C)
+      - LinkedList(C)
+      - Vector(C)
+      - Stack(C)
+    - Queue(I)
+      - PriorityQueue(C)
+      - Array Dequeue(C)
+    - Set(I)
+      - HashSet(C)
+      - LinkedHashSet(C)
+      - TreeSet(C)
+
+- List
+  - if duplicates are alowed and insertion order must be preserved then we can use array list
+
+ArrayList
+- duplicates objects are preserved.
+- insertion order is preserved.
+- null are allowed.
+
+LinkedList
+- if we frequently do insertion/deletion at the middle then Linked List is best.
+- if our frequnt operation is retrival then it was worst choice.
+
+  
+- Queue
+  - Queue interface maintains first in first out order. 
+
+- Set
+  - if we don't want to allow duplicates and insertion order is not important then we can use Set.
+
+
+### Map(I)
+  - HashMap
+  - LinkedHashMap
+  - TreeMap
+
+
+### Annotations
+  - Annotations is a form of metadata, which provides info about a variable/class/method.
+  - Info that annotations provides is:
+    - info about the compiler like detecting errors/warnings like @override, @SuppressWarnings
+    - Processing data while compile time/deployment time like reading XML files/generating code.
+
+Annotations can be used during declaration of class/method/fields.
+  - @Entity
+  - Caliculator abc;
+  - @Override
+  - @Author(name = "Benjamin Franklin",date = "3/27/2003")
+  - @SuppressWarnings(value = "unchecked")
+
+
+### Java 8 Features
+- Method References
+  - 
+- Functional interfaces
+- Lambda Expression
+- Streams api.
+- 
+
+
+
+
+
