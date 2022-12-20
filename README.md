@@ -514,16 +514,75 @@ Annotations can be used during declaration of class/method/fields.
   - @Author(name = "Benjamin Franklin",date = "3/27/2003")
   - @SuppressWarnings(value = "unchecked")
 
+- Inner Classes : a class inside an another class. 
+- Annonymous classes : A class without a name.
 
 ### Java 8 Features
 - Method References
-  - 
 - Functional interfaces
+- Default methods and static methods in interface.
 - Lambda Expression
+~~~java
+        // Syntax
+      (arguments) -> { //Impl
+      }
+~~~
+- Optional
+
+
 - Streams api.
-- 
+  - A Stream doesn't store any data,
+  - Stream  don't change the original data.
+
+JAVA SE - 
+  AWT
+  SWING 
+
+JAVA EE - 
+----------
+Servlets, JSP,
+Tomcat,Glashfish,WebSphere, weblogic, wildfly.
+
+http://google.com/Java 8  -> http://190.348.321.092:8080/Java&8
+
+bing
+GET Request.
+
+HTTP Requests:::
+-----------------
+GET
+POST
+Patch
+PUT
+HEAD
 
 
+GET
+- Not Secure
+- Idepotent
+- Can be bookmarked.
+- is more faster.
+
+Post:
+- Secure
+- not Idepotent
+- Cannot be bookmarked.
+- is not faster compared to GET.
+
+
+
+
+
+Build tools:::
+-------------
+- ANT   - 
+- MAVEN - 
+- Gradle.
+
+Three Specific format:::
+JAR - JavaArchiveFile.
+WAR - WebArchiveFile.
+EAR - EntrepiseArchiveFile.
 
 
 
