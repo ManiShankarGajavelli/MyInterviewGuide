@@ -10,6 +10,21 @@
 - Dependency Injection is a pattern used to implement IOC where the control is being inverted is setting an Object's dependencies.//where control is transfered to framework/container
 - Eg:Spring achieves DI using BeanFactory,ApplicationContext interfaces where user need to provide meta data to beans in the form of XML or annotations.
 
+### Spring IOC Container
+- Spring IOC Container is responsible for instantiation,configuring and assembling the beans. the Container gets its information on what objects to instantiate, configure and manage by reading configuration meta data we define for the application.
+- There are two main IOC Containers i.BeanFactory ii.ApplicationContext.
+#### BeanFactory
+- BeanFactory interface is a simplest yet configurable way to manage objects by Spring IOC Container which takes care of life cycle of a bean.
+- But It does not support annotations.
+#### ApplicationContext
+- is a IOC Container which was used to manages objects which takes care of Life cycle of a bean.
+Same as BeanFactory but Spring Recommends ApplicationContext as it was a superset of BeanFactory.
+
+#### Difference b/w BeanFactory and ApplicationContext?
+- Both supports Bean instantiation/wiring but does not support Convenient MessageSource access (for i18n) and Automatic BeanPostProcessor/BeanFactoryPostProcessor  registration(transactions and AOP will not take effect in BeanFactory because of above items) and ApplicationEvent publication(Supports custom Events).
+- Bean Factory = Basic management of beans and wiring of beans. spring recommeds only for memory are resource less space like IOT Devices where memory and space is very less.
+- Application Context = Bean Factory ++ Spring's AOP Features + I18n capabilities + WebApplicationContext for Web Applications
+
 ### Spring Dependency Injection Types
 - Dependency Injection in Spring Can be done through Constructor,Setter and Field.
 
@@ -37,21 +52,6 @@ constructor or no argument static factory method to instintiate the bean.
 Lazy Initialized Beans
 - By default, the container creates and configures all singleton beans during initialization, to avoid this we can use lazy-init with value "true".
 - Faster initialization but Disadvantage is we cannot find any error until it was initialized.
-		
-### Spring IOC Container
-- Spring IOC Container is responsible for instantiation,configuring and assembling the beans. the Container gets its information on what objects to instantiate, configure and manage by reading configuration meta data we define for the application.
-- There are two main IOC Containers i.BeanFactory ii.ApplicationContext.
-#### BeanFactory
-- BeanFactory interface is a simplest yet configurable way to manage objects by Spring IOC Container which takes care of life cycle of a bean.
-- But It does not support annotations.
-#### ApplicationContext
-- is a IOC Container which was used to manages objects which takes care of Life cycle of a bean.
-Same as BeanFactory but Spring Recommends ApplicationContext as it was a superset of BeanFactory.
-
-#### Difference b/w BeanFactory and ApplicationContext?
-- Both supports Bean instantiation/wiring but does not support Convenient MessageSource access (for i18n) and Automatic BeanPostProcessor/BeanFactoryPostProcessor  registration(transactions and AOP will not take effect in BeanFactory because of above items) and ApplicationEvent publication(Supports custom Events).
-- Bean Factory = Basic management of beans and wiring of beans. spring recommeds only for memory are resource less space like IOT Devices where memory and space is very less.
-- Application Context = Bean Factory ++ Spring's AOP Features + I18n capabilities + WebApplicationContext for Web Applications
 
 ### Dependency Injection Design Pattern?
 The dependency injection technique is a popular alternative to the service locater pattern. 
@@ -68,26 +68,25 @@ Web Aware Scopes
 - WebSocket -> Creates a bean for a particular WebSocket Session.
 
 Bean Life Cycle
-	when Container Starts, a Spring Bean needs to be instantiated based on java/xml bean definition. it may be required to perform some initialization to get it into a usable state. Similarly, when the bean is no longer required and is removed from the container, some cleanup may be required.
-	Container is responsible for managing the life cycle of beans created through spring container.
-Bean Life Cycle
-	there are two types of life cycle callbacks,
-		1. Post-initialization call back methods.
-		2. pre-destruction call back methods.
-Four ways of Controlling Bean Life Cycle events:
+- when Container Starts, a Spring Bean needs to be instantiated based on java/xml bean definition. it may be required to perform some initialization to get it into a usable state. Similarly, when the bean is no longer required and is removed from the container, some cleanup may be required.
+- Container is responsible for managing the life cycle of beans created through spring container.
+- There are two types of life cycle callbacks,
+	1. Post-initialization call back methods.
+	2. pre-destruction call back methods.
+- Four ways of Controlling Bean Life Cycle events:
 	1.	initializingBean(afterPropertySet()) and disposableBean(destory()) Callback interfaces.
-			Not recommended way as it has tight Couple your bean class with spring container.
+		- Not recommended way as it has tight Couple your bean class with spring container.
 	2. *Aware interfaces for specific behaviour.
-			Spring Provides a set of *Aware interface which we need to provide implementation to them.
+		- Spring Provides a set of *Aware interface which we need to provide implementation to them.
 	3. custom init() and destroy() methods.
 			this can be defined in 
-			1. BeanLocal Definition :::In XML to a single bean tag with init-method and destroy-method 
-			2. Global Definition :::In XML to a beans tag with init-method and destroy-method
+        - BeanLocal Definition :::In XML to a single bean tag with init-method and destroy-method 
+        - Global Definition :::In XML to a beans tag with init-method and destroy-method
 	4. @PostConstruct and @PreDestroy Annotations:::
-		Spring Call these methods only once and they are JSR-250 annotations.
-		PostConstruct::: will be called just after the created with default constructor and before it was returned to requested object.
-		PreDestory: is called just before the bean is about to destroyed inside the bean container.
-			These are part of JavaEE and JavaEE was deprecated in java 9 and removed in java 11. so, we need to add additional dependency :javax.annotation.
+        Spring Call these methods only once and they are JSR-250 annotations.
+         - PostConstruct::: will be called just after the created with default constructor and before it was returned to requested object.
+         - PreDestory: is called just before the bean is about to destroyed inside the bean container.
+         - These are part of JavaEE and JavaEE was deprecated in java 9 and removed in java 11. so, we need to add additional dependency :javax.annotation.
 
 ### Major Annotations in Spring
 
