@@ -1,0 +1,166 @@
+CoreJava:::::::::::
+---------------------
+
+Difference between JDK vs JRE vs JVM?
+	JDK->Java Development Kit: JDK is a software development environment used to develop java applications and applets. it includes JRE, interpreter,javac compiler,JAR archiver and javadoc and other tools.
+	JRE ->Java Runtime Environment:JRE provides a environment to execute a java app.it inclues JVM,core classes and supporting files.
+	JVM->Java Virtual Machine:JVM is a abstract machine, it provides runtime environment in which java bytecode can be executed.
+	
+constructor : Constructor is noting but a method without a return type and name should be same as a class.
+The Main purpose of constructor is object Creation and initialization of data,
+
+1.Class : Class is a blue print of an object where it doesn't have any memory.
+2.Object :Instance of a class is called as object where it has memory by constructor invocation.
+
+solid principles:::::::
+-----------------------
+Solid principles are design patterns which was used to create more maintainable,understandable and flexible software. they are 
+1. Single Responsibility principle: A Class should have only one responsibility and it should have only one reason to change.
+2. open/closed::: Classes should be open for extension and closed for modification. we stop ourself from modifying existing code and causing potential bugs.
+3. Liskov Substitution::: ex:Bird-Fly-Ostrich;;;Rectangle-setwidth-setHeight-Square.
+4. Interface Segregation:::larger interfaces should be split into smaller ones.
+5. Dependency Inversion::: Instead of high-level modules depend on low level modules,everything should depend on abstraction.
+
+Why Java doesn't support multiple inheritance?
+	Java supports multiple inheritance by interface not by class because it leads to deadly diamond problem. it can be solved but benefits are less but complex.
+OOPS:::::
+In Object Oriented Programming language totally contains 14 concepts but main are 
+Abstraction,polymorphism,Inheritance and Encapsulation.
+
+Encapsulation ::: 
+Wrapping of data and functions into a single unit is called Encapsulation.
+Example : class using private etc.
+Data Hiding is a part of Encapsulation which suggest us to keep our data as private.By this we will get Code Level Security.
+Inheritance (IS-A Relationship):::
+	Deriving/Inheriting the properties from super class to sub class or super object to sub class is called Inheritance.
+	we use extends/implements to use Inheritance. a class can inherit only one class and many interfaces.
+Abstraction :::
+	the process of hiding certain data from users and showing only the required info to them is called abstraction. ex: abstact class.
+Polymorphism:::
+	One form behaves as multiple forms is called polymorphism.
+	two types of polymorphism.
+	1. Static/compile time or Overloading polymorphism.
+	2. Dynamic/run time or Overriding polymorphism.
+Overloading :::
+	writing more than one method with same name and different method signature is called overloading. signature might differ in number/type/order of arguments.
+	Compiler can identify which method to execute during compilation only.
+
+Overriding :::
+	writing same method name,same parameters,same return type and access modifier in the sub class is called Overriding.
+	Overriding is not possible for static method.
+	Compiler can identify which method to execute during runtime only.
+Aggregation HAS-A Relationship::::
+	Aggregation is a relationship where the child can exist independently of the parent.
+	EX: Bank and employee, delete a bank and employee still exists.
+Composition/Has-A Relationship::::
+	Composition is a relationship where the child cannot exists independently of parent.
+	EX: Human and heart, heart doesn't exits without a human.
+Composition is a Strong Association and Aggregation is a weak Association.
+Association : One object depends on other object is Association.
+	Composition is a sub part of Aggregation which was a sub part of association.
+
+
+Creating an object with out new keyword.
+	Creating an object by new Keyword.
+	using Class.newInstance() method.	classname.class.newInstance().
+	using Reflection :newInstance() method of constructor.
+	using clone() method.	obj.clone().
+	using Object serilization and deserilization. new fileinputStream("abc.txt");
+	
+Final ::::::
+Final is a keyword which was applicable to variables, methods and classes.
+Final Variables are constants which doesn't allow to change it's value.
+	Final keyword is different for objects and basic variables. to the point it does not allow us to change the reference of the variable.
+Final Classes cannot be inherited/sub classed. Ex: String,StringBuffer and Wrapper classes.
+Final Methods cannot be overridden by other classes.
+
+transient Keyword :::
+	is used along with instance variables to exclude them from serilization.
+volatile keyword:::
+	volatile keyword is used to mark a Java variable being stored in main memory.
+	every read and write will be done from computer main memory and not from cpu cache.
+	volatile makes accessing the variables slower by having every thread access the value.
+
+String:::::
+------------
+What is String?
+	String is a class in Java and defined in java.lang.package. string is immutable and final class in Java.it is not a primitive data type like int, long. 
+
+Q . new String object vs String literal ex: s = "Mani"?
+	new operator will create a new object in heap memory where as string literal will create a object in string pool which can be re-used when other string calls it.
+	with new operator we can create in string pool using intern() method.
+
+Q . why string is immutable and what are immutable objects?
+	Immutable Objects are objects whose internal state remains constant after it has been entirely created.
+	String is immutable to improve performance and security and to make it thread safe.
+	and because of this we have thread pool where we can reuse the same string.
+
+Steps to creating a new Immutable objects?
+	declare a class as final, so, it can't be extended.
+	make all fields as private, so that direct access is not allowed.
+	don't provide setter methods for variables.
+	Make all the mutable fields as final, so that they cannot be changed.
+	initialize all the fields via a constructor
+	perform cloning of objects in the getter methods to return a copy rather than 
+		returning the actual object.
+	
+Q . Difference between String ,StringBuffer and StiringBuilder?
+	Since String is immutable, string manipulations automatically creates new string without discarding old one.so, heap will have garbage old strings.
+	so, Java introduced two options for string manipulations,
+	StringBuffer is thread safe and synchronized where we can use in multi-threaded environment. so, it was slower than string builder.
+	StringBuilder is not thread safe, so, it was faster than StringBuffer.
+
+
+
+what and why Lambda?
+Functional Programming Lambda Diamond problem?
+Exceptions  simple code blocks
+
+
+serialization
+How HashMap works in Java?
+functional interface
+Q . What wait notify notifyAll
+Q . How to create thread?
+Q . What is Join method in thread?
+Q . Streams concept in Java?
+Q . Can we override static methods?
+Q . What is final and static keywords in Java?
+Q . How sort map? and what is map?
+Q . Diff between ArrayList and LinkedList?
+Q . How HashMap internally work?
+Q . What is the different between Comparable and Comparator?
+Q . How get synchronized version of list object?
+Q . How to sort list object?
+Q . What is the equals method?
+Q . Do you know contract between equals and hash code method?
+Q . What is hash collision in java?
+Q . Diff between == and .equals ?
+Q . Diff between list and set?
+Q . What is concarent HashMap?
+Q . Can we declare constructor in abstract class?
+Q . Java 8 features?
+Q . What try with resource?
+Q . What is multi catch?
+Q . Java 7 features?
+
+Q . Can we write empty java file?
+Q . How to stop modifing list object?
+Q . What are class loader types
+Q . JVM diffrenct memory locations
+Q . In class static block will execute first or constructor will execute first?
+Q . In class Instance block will execute first or constructor will execute first?
+Q . Can we override static methods?
+Q . What is the Override annotaion in java?
+Q . Why functional interface has only one abstract method?
+super()
+
+What is the diffrence between comparable and comparator?
+Thread:
+Thread ( sleep yeald join )
+Synchronized
+wait notify notifyAll
+intruppt
+Race condition
+is singleton class with thread safe
+How to privent object to clone

@@ -1,0 +1,34 @@
+1. Different ways of reading input from user in a main java application?
+	a. Using Buffered Reader Class:::
+		   BufferedReader reader = new BufferedReader(
+            new InputStreamReader(System.in));
+        // Reading data using readLine
+        String name = reader.readLine();
+		
+		To read other types, we use functions like Integer.parseInt(), Double.parseDouble(). To read multiple values, we use split().
+	b. Using Scanner Class:::
+		   Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+		
+	c. Using Console Class:::
+		      // Using Console to input data from user
+        String name = System.console().readLine();
+	d. Using Command line argument
+		  if (args.length > 0) {
+            // iterating the args array and printing
+            // the command line arguments
+            for (String val : args)
+                System.out.println(val);
+        }
+
+2. Different ways of iterating a Map(hashmap) in java?
+3. Different ways of iterating a List in java?
+4. Convert a List to a Map in Java.
+5. Convert a Map to a List in Java.
+6. How to sort ArrayList based on attributes using comparator and Using Custom comparator.
+7. How to remove duplicates in a arraylist.
+8. Streams with various Examples.
+String:::::
+-----------
+1. Reverse a String in java.
+2. 

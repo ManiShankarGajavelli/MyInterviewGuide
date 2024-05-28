@@ -1,0 +1,595 @@
+Spring Annotations
+=========================================================
+1.@Required
+------------------------
+* This annotation is applied on bean setter methods. 
+Consider a scenario where you need to enforce a required property. 
+The @Required annotation indicates that the affected bean must be populated at configuration time with the required property. 
+Otherwise an exception of type BeanInitializationException is thrown.
+
+2.@Autowired
+-------------------------------------
+This annotation is applied on fields, setter methods, and constructors. The @Autowired annotation injects object dependency implicitly.
+When you use @Autowired on a constructor, constructor injection happens at the time of object creation.
+
+3.@Qualifier
+------------------------------------------
+This annotation is used along with @Autowired annotation.
+When you need more control of the dependency injection process, @Qualifier can be used. @Qualifier can be specified on individual constructor arguments or method parameters. 
+This annotation is used to avoid confusion which occurs when you create more than one bean of the same type and want to wire only one of them with a property.
+
+4. @Configuration
+----------------------------------------------
+This annotation is used on classes which define beans. @Configuration is an analog for XML configuration file – it is configuration using Java class. 
+Java class annotated with @Configuration is a configuration by itself and will have methods to instantiate and configure the dependencies.
+
+5. @ComponentScan
+-----------------------------------------
+This annotation is used with @Configuration annotation to allow Spring to know the packages to scan for annotated components. 
+@ComponentScan is also used to specify base packages using basePackageClasses or basePackage attributes to scan. 
+If specific packages are not defined, scanning will occur from the package of the class that declares this annotation.
+
+6. @Bean
+--------------------------------------
+This annotation is used at the method level. @Bean annotation works with @Configuration to create Spring beans. As mentioned earlier,
+@Configuration will have methods to instantiate and configure dependencies. 
+Such methods will be annotated with @Bean. The method annotated with this annotation works as bean ID and it creates and returns the actual bean.
+
+7.@EnableSwagger2
+----------------------------------------------
+@EnableSwagger2 annotation is used to enable the Swagger2 for our Spring Boot application.
+Next,we have to create Docket Bean to configure Swagger2 for our Spring Boot application. We need to define the base package to configure REST API(s) for Swagger2.
+EX
+---
+@Bean
+   public Docket productApi() {
+      return new Docket(DocumentationType.SWAGGER_2).select()
+         .apis(RequestHandlerSelectors.basePackage("com.tutorialspoint.swaggerdemo")).build();
+   }
+
+8. @Valid
+----------------------------------------------
+@Valid annotation for method level validation. We also use it to mark a member attribute for validation
+However, this annotation doesn't support group validation.
+for group-level, we have to use Spring's @Validated, which is a variant of JSR-303's @Valid.  
+This is used at the method-level. For marking member attributes, we continue to use the @Valid annotation.
+
+
+Spring Framework Stereotype Annotations
+========================================================================================
+1. @Component
+----------------------------
+This annotation is used on classes to indicate a Spring component. 
+The @Component annotation marks the Java class as a bean or say component so that the component-scanning mechanism of Spring can add into the application context.
+
+2. @Controller
+----------------------------
+The @Controller annotation is used to indicate the class is a Spring controller. This annotation can be used to identify controllers for Spring MVC or Spring WebFlux
+
+3. @Service
+------------------------------
+This annotation is used on a class. The @Service marks a Java class that performs some service, such as execute business logic, perform calculations and call external APIs. 
+This annotation is a specialized form of the @Component annotation intended to be used in the service layer.
+
+4. @Repository
+---------------------------------
+This annotation is used on Java classes which directly access the database. 
+The @Repository annotation works as marker for any class that fulfills the role of repository or Data Access Object.
+
+This annotation has a automatic translation feature. For example, 
+when an exception occurs in the @Repository there is a handler for that exception and there is no need to add a try catch block.
+
+
+Spring Boot Annotations
+*************************************************************************************
+1. @SpringBootApplication
+------------------------------------
+This annotation is used on the application class while setting up a Spring Boot project. 
+The class that is annotated with the @SpringBootApplication must be kept in the base package. 
+The one thing that the @SpringBootApplication does is a component scan. But it will scan only its sub-packages.
+ As an example, if you put the class annotated with @SpringBootApplication in com.example then @SpringBootApplication will scan all its sub-packages, 
+ such as com.example.a, com.example.b, and com.example.a.x.
+
+The @SpringBootApplication is a convenient annotation that adds all the following:
+
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
+
+2. @EnableAutoConfiguration
+-------------------------------------------
+This annotation is usually placed on the main application class. The @EnableAutoConfiguration annotation implicitly defines a base “search package”. 
+This annotation tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
+
+
+Spring MVC and REST Annotations
+********************************************************************************
+1.@Controller
+--------------------
+This annotation is used on Java classes that play the role of controller in your application. 
+The @Controller annotation allows autodetection of component classes in the classpath and auto-registering bean definitions for them. 
+To enable autodetection of such annotated controllers, you can add component scanning to your configuration. 
+The Java class annotated with @Controller is capable of handling multiple request mappings.
+
+This annotation can be used with Spring MVC and Spring WebFlux.
+
+2.@RequestMapping
+---------------------------
+This annotation is used both at class and method level. 
+The @RequestMapping annotation is used to map web requests onto specific handler classes and handler methods. 
+When @RequestMapping is used on class level it creates a base URI for which the controller will be used. 
+When this annotation is used on methods it will give you the URI on which the handler methods will be executed. 
+From this you can infer that the class level request mapping will remain the same whereas each handler method will have their own request mapping.
+
+Sometimes you may want to perform different operations based on the HTTP method used, even though the request URI may remain the same. 
+In such situations, you can use the method attribute of @RequestMapping with an HTTP method value to narrow down the HTTP methods in order to invoke the methods of your class.
+
+@GetMapping
+--------------------
+This annotation is used for mapping HTTP GET requests onto specific handler methods. 
+@GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET)
+
+@PostMapping
+----------------------------
+This annotation is used for mapping HTTP POST requests onto specific handler methods. 
+@PostMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.POST)
+
+@PutMapping
+---------------------------------
+This annotation is used for mapping HTTP PUT requests onto specific handler methods.
+@PutMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.PUT)
+ 
+@PatchMapping
+---------------------
+This annotation is used for mapping HTTP PATCH requests onto specific handler methods. 
+@PatchMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.PATCH)
+
+@DeleteMapping
+------------------------------------
+This annotation is used for mapping HTTP DELETE requests onto specific handler methods. 
+@DeleteMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.DELETE)
+[divider style=”4″]
+
+@ExceptionHandler
+-------------------------
+This annotation is used at method levels to handle exception at the controller level. 
+The @ExceptionHandler annotation is used to define the class of exception it will catch. 
+You can use this annotation on methods that should be invoked to handle an exception. 
+The @ExceptionHandler values can be set to an array of Exception types. 
+If an exception is thrown that matches one of the types in the list, then the method annotated with matching @ExceptionHandler will be invoked.
+
+@PathVariable
+---------------------------------
+This annotation is used to annotate request handler method arguments. 
+The @RequestMapping annotation can be used to handle dynamic changes in the URI where certain URI value acts as a parameter. 
+You can specify this parameter using a regular expression. The @PathVariable annotation can be used declare this parameter.
+
+@RequestParam
+----------------------------
+This annotation is used to annotate request handler method arguments. 
+Sometimes you get the parameters in the request URL, mostly in GET requests. 
+In that case, along with the @RequestMapping annotation you can use the @RequestParam annotation to retrieve the URL parameter and map it to the method argument. 
+The @RequestParam annotation is used to bind request parameters to a method parameter in your controller.
+
+@RestController
+-----------------------------
+This annotation is used at the class level. The @RestController annotation marks the class as a controller where every method returns a domain object instead of a view. 
+By annotating a class with this annotation you no longer need to add @ResponseBody to all the RequestMapping method. 
+It means that you no more use view-resolvers or send html in response. You just send the domain object as HTTP response in the format that is understood by the consumers like JSON.
+
+
+Spring Boot Interview Questions
+****************************************************************************
+1) What is Spring Boot?
+
+Spring Boot is a Spring module which provides RAD (Rapid Application Development) feature to Spring framework.
+
+It is used to create stand alone spring based application that you can just run because it needs very little spring configuration.
+
+2) What are the advantages of Spring Boot?
+
+Create stand-alone Spring applications that can be started using java -jar.
+Embed Tomcat, Jetty or Undertow directly. You don't need to deploy WAR files.
+It provides opinionated 'starter' POMs to simplify your Maven configuration.
+It automatically configure Spring whenever possible.
+
+3) What are the features of Spring Boot?
+
+Web Development
+SpringApplication
+Application events and listeners
+Admin features
+For more information click here.
+
+4) How to create Spring Boot application using Maven?
+
+There are multiple approaches to create Spring Boot project. We can use any of the following approach to create application.
+
+Spring Maven Project
+Spring Starter Project Wizard
+Spring Initializr
+Spring Boot CLI
+
+5) How to create Spring Boot project using Spring Initializer?
+
+It is a web tool which is provided by Spring on official site. You can create Spring Boot project by providing project details.
+
+6) How to create Spring Boot project using boot CLI?
+
+It is a tool which you can download from the official site of Spring Framework. Here, we are explaining steps.
+
+7) How to create simple Spring Boot application?
+
+To create an application. We are using STS (Spring Tool Suite) IDE and it includes the various steps that are explaining in steps.
+
+8) What are the Spring Boot Annotations?
+
+The @RestController is a stereotype annotation. It adds @Controller and @ResponseBody annotations to the class. 
+We need to import org.springframework.web.bind.annotation package in our file, in order to implement it.
+
+9) What is Spring Boot dependency management?
+
+Spring Boot manages dependencies and configuration automatically. You don't need to specify version for any of that dependencies.
+
+Spring Boot upgrades all dependencies automatically when you upgrade Spring Boot.
+
+10) What are the Spring Boot properties?
+
+Spring Boot provides various properties which can be specified inside our project's application.properties file. 
+These properties have default values and you can set that inside the properties file. 
+Properties are used to set values like: server-port number, database connection configuration etc.
+
+11) What are the Spring Boot Starters?
+
+Starters are a set of convenient dependency descriptors which we can include in our application.
+
+Spring Boot provides built-in starters which makes development easier and rapid. For example, 
+if we want to get started using Spring and JPA for database access, just include the spring-boot-starter-data-jpa dependency in your project.
+
+12) What is Spring Boot Actuator?
+
+Spring Boot provides actuator to monitor and manage our application. Actuator is a tool which has HTTP endpoints. 
+when application is pushed to production, you can choose to manage and monitor your application using HTTP endpoints.
+
+15) How to connect Spring Boot to the database using JPA?
+
+Spring Boot provides spring-boot-starter-data-jpa starter to connect Spring application with relational database efficiently. 
+You can use it into project POM (Project Object Model) file.
+
+16) How to connect Spring Boot application to database using JDBC?
+
+Spring Boot provides starter and libraries for connecting to our application with JDBC. 
+Here, we are creating an application which connects with Mysql database. It includes the following steps to create and setup JDBC with Spring Boot.
+
+17) What is @RestController annotation in Spring Boot?
+
+The @RestController is a stereotype annotation. It adds @Controller and @ResponseBody annotations to the class. 
+We need to import org.springframework.web.bind.annotation package in our file, in order to implement it.
+
+18) What is @RequestMapping annotation in Spring Boot?
+
+The @RequestMapping annotation is used to provide routing information. 
+It tells to the Spring that any HTTP request should map to the corresponding method. We need to import org.springframework.web.annotation package in our file.
+
+19) How to create Spring Boot application using Spring Starter Project Wizard?
+
+There is one more way to create Spring Boot project in STS (Spring Tool Suite). 
+Creating project by using IDE is always a convenient way. Follow the following steps in order to create a Spring Boot Application by using this wizard.
+
+20) Spring Vs Spring Boot?
+Spring is a web application framework based on Java. It provides tools and libraries to create a complete cutomized web application.
+
+Wheras Spring Boot is a spring module which is used to create spring application project that can just run.
+
+21) Key Components of Spring Boot Framework?
+Spring Boot Starters
+Spring Boot AutoConfigurator
+Spring Boot CLI
+Spring Boot Actuator
+
+Spring Boot Starters
+----------------------------
+Spring Boot Starters is one of the major key features or components of Spring Boot Framework. 
+The main responsibility of Spring Boot Starter is to combine a group of common or related dependencies into single dependencies.
+Spring Boot Starter component combines all related jars into single jar file so that we can add only jar file dependency to our build files. 
+Instead of adding above 4 jars files to our build file, we need to add one and only one jar file: “spring-boot-starter-web” jar file.
+Major Advantages of Spring Boot Starter
+Spring Boot Starter reduces defining many dependencies simplify project build dependencies.
+Spring Boot Starter simplifies project build dependencies.
+
+Spring Boot AutoConfigurator
+----------------------------------------------
+The main responsibility of Spring Boot AutoConfigurator is to reduce the Spring Configuration. 
+If we develop Spring applications in Spring Boot,then We dont need to define single XML configuration and almost no or minimal Annotation configuration. 
+Spring Boot AutoConfigurator component will take care of providing those information.
+If we use “spring-boot-starter-web” jar file in our project build file, then Spring Boot AutoConfigurator will resolve views, view resolvers etc. automatically.
+That is, @SpringBootApplication = @Configuration + @ComponentScan + @EnableAutoConfiration.
+
+Spring Boot CLI
+----------------------
+Spring Boot CLI(Command Line Interface) is a Spring Boot software to run and test Spring Boot applications from command prompt. 
+When we run Spring Boot applications using CLI, then it internally uses Spring Boot Starter and Spring Boot AutoConfigurate components 
+to resolve all dependencies and execute the application.
+Spring Boot CLI has introduced a new “spring” command to execute Groovy Scripts from command prompt.
+spring run HelloWorld.groovy
+Spring Boot CLI component requires many steps like CLI Installation, CLI Setup, Develop simple Spring Boot application and test it.
+
+Spring Boot Actuator
+------------------------------------
+Spring Boot Actuator components gives many features, but two major features are
+Providing Management EndPoints to Spring Boot Applications.
+Spring Boot Applications Metrics.
+When we run our Spring Boot Web Application using CLI, Spring Boot Actuator automatically provides hostname as “localhost” and default port number as “8080”.
+We can access this application using “https://localhost:8080/” end point
+
+1.Why is @ControllerAdvice used?
+@ControllerAdvice is a specialization of the @Component annotation which allows to handle exceptions across the whole application in one global handling component. 
+It can be viewed as an interceptor of exceptions thrown by methods annotated with @RequestMapping and similar.
+not just to an individual controller. You can think of it as an interceptor of exceptions thrown by methods annotated with @RequestMapping or one of the shortcuts
+ResponseEntityExceptionHandler is a convenient base class for @ControllerAdvice classes that wish to provide centralized exception handling across all 
+@RequestMapping methods through @ExceptionHandler methods.
+
+2.Difference between map() and flatMap() in java8?
+Map()
+---------------
+The function passed to map() operation returns a single value for a single input.
+One-to-one mapping occurs in map().
+Only perform the mapping.
+Produce a stream of value.
+map() is used only for transformation.
+<R> Stream<R> map(Function<? super T, ? extends R> mapper)
+
+flatMap()
+-------------------------
+The function you pass to flatmap() operation returns an arbitrary number of values as the output.
+One too many mapping occurs in flatMap().
+Perform mapping as well as flattening.
+Produce a stream of stream value.
+flatMap() is used both for transformation and mapping.
+<R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)
+
+3. program for sorting an array?
+In desending ordder
+------------------------
+public class GFG {
+   
+    // Main driver method
+    public static void main(String[] args)
+    {
+        // Note that we have Integer here instead of
+        // int[] as Collections.reverseOrder doesn't
+        // work for primitive types.
+        Integer[] arr = { 13, 7, 6, 45, 21, 9, 2, 100 };
+ 
+        // Sorts arr[] in descending order using
+        // reverseOrder() method of Collections class
+        // in Array.sort() as an argument to it
+        Arrays.sort(arr, Collections.reverseOrder());
+ 
+        // Printing the array as generated above
+        System.out.println("Modified arr[] : %s",
+                           Arrays.toString(arr));
+    }
+}
+Modified arr[] : [100, 45, 21, 13, 9, 7, 6, 2]
+In asending oeder
+------------------------------
+public class GFG {
+ 
+    // Main driver method
+    public static void main(String[] args)
+    {
+        // Custom input array
+        int[] arr = { 13, 7, 6, 45, 21, 9, 101, 102 };
+ 
+        // Applying sort() method over to above array
+        // by passing the array as an argument
+        Arrays.sort(arr);
+ 
+        // Printing the array after sorting
+        System.out.println("Modified arr[] : %s",
+                           Arrays.toString(arr));
+    }
+}
+Modified arr[] : [6, 7, 9, 13, 21, 45, 101, 102]
+
+Different types of joins are:
+*************************************************
+1.INNER JOIN
+2.LEFT JOIN
+3.RIGHT JOIN
+4.FULL JOIN
+5.CROSS JOIN
+6.SELF JOIN
+
+1.INNER JOIN
+---------------------------------
+SQL Inner Join is used to select all the rows from tables for the match between the columns in tables
+SQL INNER JOIN is based on the concept of EQUI JOINS.
+EQUI JOINS are those who use the comparison operator (=) for combining records from two or more tables.
+When the condition is satisfied, column values for each matched pair of rows of two tables are combined into a result row.
+SYNTAX
+
+Select columns from Table_1 
+INNER JOIN Table_2 on Table_1.column = Table_2.column;
+
+So, in the above statements columns represent the column names of the tables.
+Table_1 and Table_2 are the names of tables.
+And the condition i.e Table_1.column = Table_2.column is used to compare the columns which are common in both the tables.
+
+Select Department.Dept_no, Employee.Emp_name, Employee.City, Employee.Salary from Department 
+INNER JOIN Employee on Department.Emp_id = Employee.Emp_id;
+
+2.LEFT JOIN
+----------------------------
+Left outer join returns all rows in the table which is on the left side matched with the rows of a table on right side. 
+This gives the conclusion that the SQL left Join always contains the rows in the left table.
+
+SYNTAX
+
+Select column_1, column_2… 
+from table_1 LEFT JOIN table_2 ON CONDITION;
+
+Let’s clear this with an example.
+
+Select Orders.O_ID, Customer.id, customer.name, Orders.amount 
+From CUSTOMER 
+LEFT JOIN Orders ON Customer.ID = Orders.Cust_ID;
+
+3. RIGHT JOIN
+----------------------------------
+The SQL right join returns all the values from the rows of the right table. 
+It also includes a matched values from a left table, but if there is no matching in both the tables, it returns the NULL values.
+SYNTAX
+
+Select column_1, column_2… 
+from table_1 RIGHT JOIN table_2 ON CONDITION;
+
+Query
+Select Orders.O_ID,Customer.id,customer.name,Orders.amount 
+From CUSTOMER 
+RIGHT JOIN Orders ON Customer.ID = Orders.Cust_ID;
+
+4.FULL JOIN
+-----------------------------
+SQL full join returns all the rows in the left table, 
+right table and matching rows in both the tables or you can say it is a combination of left and right join. It is also known as a full outer join.
+SYNTAX
+
+Select * from table1 
+FULL OUTER JOIN table2 ON CONDITION;
+
+Let’s clear this with an example.
+
+Select * from Customer 
+FULL OUTER JOIN Orders ON Customer.ID = Orders.cust_id;
+
+5.CROSS JOIN
+-----------------------------------------
+SQL Cross Join is used to join the table having no condition in which all the records of the first table comes with all the records of the second table.
+
+This type of join is also called a Cartesian product.
+
+Unlike the INNER JOIN or LEFT JOIN, the cross join does not establish a relationship between the joined tables.
+Syntax
+
+SELECT COLUMNS_NAME FROM TABLE_1 
+CROSS JOIN TABLE_2;
+
+QUERY
+Select * from STUDENT 
+CROSS JOIN COURSE;
+
+6.SELF JOIN
+--------------------------------
+In the self-join table is joined itself, i.e. each row is joined with itself and all other rows depending on the conditions.
+Syntax
+
+SELECT a.column1, b.column2 
+from table_name a, table_name b 
+where condition;
+
+QUERY
+
+Select a.emp_name,b.salary 
+from employee a,employee b 
+where a.salary < b.salary;
+
+
+
+19/2/2022
+------------------
+1.difference b/w array and arraylist?
+2.about serializable?
+3.write code to merge 2 integer arrays?
+4.about super keyword?
+5.about constructer?
+6.difference b/w @RequestParam and @querParam?
+@RequestParam and @PathVariable are used to extract values from the HTTP request
+As the name suggests, @RequestParam is used to get the request parameters from URL, also known as query parameters, while @PathVariable extracts values from URI.
+7.what is the default container in spring boot?
+Tomcat container
+8.About @Transactional and it's methhods?
+9.solid principles in java?
+10.functional programming in java 1.8?
+11.diff b/w predicate,cosumer,supplier,function in java1.8?
+12 diff b/w soap and rest service?
+
+9.solid principles in java?
+Single Responsibility Principle (SRP)
+Open-Closed Principle (OCP)
+Liskov Substitution Principle (LSP)
+Interface Segregation Principle (ISP)
+Dependency Inversion Principle (DIP)
+
+
+10.core java desing patterns?
+11.limitations with @autowire?
+12.http response code for recored already exist?
+would be '409 Conflict
+
+13.difference bitween collection.stream().foreach() and collection.foreach()?
+Collection.stream().forEach()
+----------------------------
+i.Collection.stream().forEach() is also used for iterating the collection but it first converts the collection to the stream and then iterates over the stream of collection.
+ii.Unlike Collection.forEach() it does not execute in any specific order, i.e. the order is not defined.
+iii. During structure modification in the collection, the exception will be thrown later.
+iV. If iteration is happening over the synchronized collection, then it does not lock the collection.
+
+Collection.forEach()
+-------------------
+i.Collection.forEach() uses the collections iterator.
+ii. If always execute in the iteration order of iterable, if one is specified.
+iii. If we perform any structural modification in the collection by using the collection.forEach() it will immediately throw an exception.
+iv. If iteration is happening over the synchronized collection, then it locks the collection and holds it across all the calls.
+
+11.diff b/w predicate,cosumer,supplier,function in java1.8?
+1.there are few functional interfaces namely Consumer, Supplier, Predicate and Functions are most crucial
+Consumer
+------------
+A Consumer is a functional interface that accepts a single input and returns no output
+Consumer interface has two methods:
+void accept(T t);
+default Consumer<T> andThen(Consumer<? super T> after);
+The accept method is the Single Abstract Method (SAM) which accepts a single argument of type T. Whereas, the other one andThen is a default method used for composition.
+consumer interface has specific implementation types for integer, double and long types with IntConsumer, DoubleConsumer, and LongConsumer as shown below:
+IntConsumer void accept(int x);
+DoubleConsumer void accept(double x);
+LongConsumer void accept(long x);
+
+Supplier
+-------------------
+A Supplier is a simple interface which indicates that this implementation is a supplier of results
+The supplier has only one method get() and does not have any other default and static methods.
+One of the primary usage of this interface to enable deferred execution. This means delaying the execution until it is needed
+The supplier interface has its primitive variants such as IntSupplier, DoubleSupplier and so on as shown below.
+IntSupplier int getAsInt();
+DoubleSupplier double getAsDouble();
+LongSupplier long getAsLong();
+BooleanSupplier boolean getAsBoolean();
+
+Predicate
+------------------------
+A Predicate interface represents a boolean-valued-function of an argument. This is mainly used to filter data from a Java Stream.
+The filter method of a stream accepts a predicate to filter the data and return a new stream satisfying the predicate.
+A predicate has a test() method which accepts an argument and returns a boolean value.
+Predicate also provides a few default and static method for composition and other purposes:
+default Predicate<T> and(Predicate<? super T> other);
+default Predicate<T> or(Predicate<? super T> other);
+static <T> Predicate<T> isEquals(Object targetRef);
+default Predicate<T> negate();
+
+Function
+---------------------------
+A Function interface is more of a generic one that takes one argument and produces a result.
+This has a Single Abstract Method (SAM) apply which accepts an argument of a type T and produces a result of type R.
+One of the common use cases of this interface is Stream.map method. 
+
+12 diff b/w soap and rest service?
+
+SOAP stands for Simple Object Access Protocol whereas REST stands for Representational State Transfer.
+SOAP is a protocol whereas REST is an architectural pattern.
+SOAP uses service interfaces to expose its functionality to client applications while REST uses Uniform Service locators to access to the components on the hardware device.
+SOAP needs more bandwidth for its usage whereas REST doesn’t need much bandwidth.
+Comparing SOAP vs REST API, SOAP only works with XML formats whereas REST work with plain text, XML, HTML and JSON.
+SOAP cannot make use of REST whereas REST can make use of SOAP.

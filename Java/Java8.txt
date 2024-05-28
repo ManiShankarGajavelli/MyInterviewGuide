@@ -1,0 +1,4 @@
+Streams are available in java.util.stream.
+1. Stream Creation
+		
+	

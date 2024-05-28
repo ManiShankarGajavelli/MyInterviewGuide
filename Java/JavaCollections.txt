@@ -1,0 +1,21 @@
+Main Interfaces:::
+	Collection(i)
+		List(i)
+			ArrayList(c)
+			Vector(c)
+			LinkedList(c) implements List,Queue,Dequeue
+		Queue(i)
+			PriorityQueue(c)
+		Dequeue(i)
+			ArrayDeque
+		Set(i)
+			HashSet(c)
+			LinkedHashSet(c)
+			SortedSet(i)
+				TreeSet(c)
+
+	Map(i)
+		HashTable(C)
+		HashMap(C)
+		SortedMap(i)
+			TreeMap(C)

@@ -1,0 +1,9 @@
+Spring boot autoconfiguration can be done with two main things
+@SpringBootApplication	 
+					-	@SpringBootConfiguration
+							this reads all the configurations in the application and does configurations based on that.
+					-	@EnableAutoConfiguration
+							@AutoConfigurationPackage- this autoconfigures based on our application pom and other things, we have an option to exclude few auto configurations.
+SpringApplication.run	
+					- 	after all project and auto configurations, bootstrap the app then creates the application context ie.ConfigurableApplicationContext and check for listeners and start the application.
+

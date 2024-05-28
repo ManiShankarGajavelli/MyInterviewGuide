@@ -1,0 +1,43 @@
+AOP - Aspect oriented Programming.
+Def:	AOP is a programming paradigm which will improve modularity by allowing the separation of cross cutting concerns.
+		it does it by adding additional code to the existing code without modifying the existing code.
+		We use Spring AOP to implement the cross cutting concerns.
+		
+
+		
+AOP Concepts and Terminology:::
+---------------------------------
+1. Business Object:::
+		A Business Object is a normal class with normal java business logic.	
+2. Aspect:::
+		An Aspect is a modularization of a concern that cuts across multiple class. Unified logging is one of the example.
+3. JoinPoint:::
+		A JoinPoint is a point during the execution of the program such as execution of a method or handling an exception.
+
+5. PointCut:::
+		A PointCut is a predicate that helps to match an advice to be applied by an aspect at a particular JoinPoint.
+4. Advice
+		An Advice is an action taken by an aspect at a particular JoinPoint.
+		there are different types of Advices. they are ::
+			1. Around. 2. Before	3. After.
+		In Spring, an advice is an interceptor.maintaining a chain of interceptors around the JoinPoint
+		
+		
+Example Spring AOP XML Configuration::::::::::::
+-------------------------------------------------
+	--Business Logic Bean Declaration
+<bean id="sampleAdder" class="org.baeldung.logger.SampleAdder" />
+	--Aspect Bean Declaration.
+<bean id="doAfterReturningAspect" 
+  class="org.baeldung.logger.AdderAfterReturnAspect" />
+	--AOP Configuration.
+<aop:config>
+	--Expression is a PointCut(Predicate)
+    <aop:aspect id="aspects" ref="doAfterReturningAspect">
+       <aop:pointcut id="pointCutAfterReturning" expression=
+         "execution(* org.baeldung.logger.SampleAdder+.*(..))"/>
+	--Advice here was after-returning.
+       <aop:after-returning method="afterReturn"
+         returning="returnValue" pointcut-ref="pointCutAfterReturning"/>
+    </aop:aspect>
+</aop:config>	

@@ -1,0 +1,9 @@
+Throwable
+	Errors
+	Exceptions
+		Runtime Exceptions
+		Checked Exceptions
+		UnChecked Exceptions
+		
+
+
