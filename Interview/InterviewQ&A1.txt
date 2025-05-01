@@ -1,0 +1,62 @@
+Company -> Photon:::::::::
+final for variable,method and class.
+method overloading/overriding.
+can we override private and static methods		No.
+can we add final keyword to a abstract class.	No
+Threads Concept::::
+-------------------
+runnable interface and functional interface.
+does main thread ends first or runnable thread?
+main thread is not a daemon thread.
+Callable and Future in Java Thread
+runnable interface.
+calling one constructor from another constructor in a class.
+run method of Runnable has return type void and cannot return a value, how can it return a value.
+producer consumer problem.
+
+consumer,predicate,supplier in Java 8
+Optional in Java
+foreach and filter are which type of functional interface.
+
+Company -> ivycomptech
+-------------------------
+difference between classnotfound and classdefnotfound exception?
+ClassNotFoundException is an exception that occurs when you try to load a class at run time using Class.forName() or loadClass() methods and mentioned classes are not found in the classpath.
+
+NoClassDefFoundError is an error that occurs when a particular class is present at compile time, but was missing at run time.
+
+SQL:::
+find the 4th highest salary from a list of employees?
+	SELECT DISTINCT Salary FROM tblemployee ORDER BY Salary DESC LIMIT 1 OFFSET 3(n-1)
+case in sql.
+
+
+
+Company -> LTTS
+------------------
+Core Java:
+what is encapsulation and abstraction?
+example of encapsulation and abstraction.
+dynamic polymorphism,
+A is parent and B extends A  and both have test() overidden method then 
+B b = new A() ; b.test()//which method calls this
+A a = new B() ; a.test()//which method calls this
+A a = new A(); a.test() //
+different types of class loaders in java
+Threads:::
+concurrentHashMap vs synchronized HashMap, which one do you prefer in your app.
+why do we have wait,notify,notifyall methods for all objects and how do you call them.
+how do you achieve concurrency in java?
+finally /finalize
+
+what is lambda expression uses of it.
+what is functional interface why do we use it.
+difference between arraylist vs hashset?
+
+SOA architecture vs Micro services
+Spring boot advantages
+what is config server in micro services?
+how do setup a config server in microservices
+what are the advantages and disadvantages of microservices?
+what is SAGA pattern?
+

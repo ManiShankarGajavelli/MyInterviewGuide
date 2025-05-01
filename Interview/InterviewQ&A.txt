@@ -1,0 +1,488 @@
+Tell me about yourself, product based company.
+
+http Error codes ::::: 401,402,501
+JWT and JJWT,
+how to generate a token and how to use it.
+what if someone uses the same token in jwt.
+
+3. solid principles java
+https://www.javatpoint.com/solid-principles-java
+
+Streams with own Stream logic.
+	- Filter, distinct, map, flatmap, sequencial and parallel streams.
+Design Patterns:
+Singleton,factory and Builder patterns
+SAGA pattern which was used for microservices.
+how to Break and overcome a Singleton patterns with serilization,reflection,cloning?
+
+JavaScrit:::
+------------
+ES6 Features, ==/=== and Closures.
+
+React :
+-------
+React LifeCycles,
+React Hooks.
+
+Hibernate life cycle
+JPA Repository, CRUD,Pagination Repository.
+Hybernate states
+Hibernate
+dailect
+
+Project::::
+-----------
+MicroServices:
+rest template,security.
+CORS for URL for Security.
+Communication between two services in Micro Services.
+
+rest template
+producer consumer with message broker
+message broker was not used because of few rules.
+
+8 core services
+service registry
+api gateway service.
+circuit breakway pattern.
+hashset and hasmap implmentation
+duplicate values will over ride those values.
+
+
+
+
+
+
+Primary Numbers
+
+
+
+
+
+Collection:
+comparable and comparator
+sort list or set
+sort map 
+removeduplicate from list
+Convert Array to List
+https://www.geeksforgeeks.org/conversion-of-array-to-arraylist-in-java/
+Search item or find value index in Collection and Array
+
+
+https://www.lambdatest.com/blog/top-29-microservices-interview-questions-for-2019/
+
+
+joins
+https://www.w3schools.com/sql/sql_join.asp
+
+https://www.javatpoint.com/volatile-keyword-in-java
+
+access specifier and overrinding
+https://www.geeksforgeeks.org/overriding-in-java/
+
+how to get nth salary in sql
+https://www.geeksforgeeks.org/find-nth-highest-salary-table/	
+
+Equals and Hashcode Contract in Java 
+
+hashset internal implementation in java
+
+micro service
+https://piotrminkowski.com/2017/02/05/part-1-creating-microservice-using-spring-cloud-eureka-and-zuul/
+
+https://www.youtube.com/watch?v=tuJqH3AV0e8
+
+https://www.youtube.com/channel/UCAieNgran7umupT_D50KaGw/playlists
+
+Daimond problem in java
+
+
+Q . Sort the Arrya or sort the array without time complexity?
+int arr[] ={5,7,8,9,5,5,8,7};
+int uniq[] = new int[20];
+
+
+public int[] return(int[] arr){
+
+Arrays.sort(arr);{5,5,5,7,7,8,8,9};
+int dup = arr[0];
+uniq[0] = arr[0];
+for(int i=1;i<arr.lenth;i++){
+	if(dup != arr[i]){
+		uniq[i]=arr[i];
+		dup = arr[i];
+	}
+
+}
+ return uniq;
+}
+
+
+
+Q . find the duplicates or find duplicate number count?
+int dup[]={2,5,2,5,4,};
+
+Arrays.sort(dup);
+
+int num = dup[0];
+
+for(int i=1;i< dup.length;i++){
+	if(num == dup[i]){
+		syso(dup[i]);
+		break;
+	}
+	num=dup[i];
+}
+
+
+Q . Please the below question?
+Input:
+aaaabbnnnnncccabccg
+Output:
+n5a4c3b2c2a1b1g1
+
+Sring input ="aaaabbnnnnncccabccg";
+
+chart ch[] = new char[input.lenght];
+
+char c = ch[0];
+
+int count =1;
+
+ArrayList<String> al = new ArrayList<>();
+
+
+for(int i=1;i<ch.lenght;i++){
+	if(c==ch[i]){
+		count++
+	}else{
+		al.add(c+""+count);
+		count=1;
+		c=ch[i];
+	}
+}
+
+Q . how to sort collcetion object ?
+Collections.sort(al);
+
+for(int i=al.size();i>=0;i--){
+sysout(al.get(i));
+
+}
+
+Q .  Can we sort Employee or custom object ?
+
+Q . What is static and please tell what is the out for below program?
+class Employee 
+static int i = 10
+int ii=20;
+public static int return(){
+return 20;
+}
+
+public static void main(){
+Employee e1 = new Employee();
+e1.ii=30;
+Employee.i = 100;
+Employee e2 = new Employee();
+sysout(e2.ii);
+sysout(e2.i);
+
+}
+
+Q . find the max 2nd salary or max salary?
+select max(salary) from employee where salary<(select max(salary) from employee where salary<select max(salary) from employee)
+
+Q . Write a query to find emplolyee name whose name start wiht a?
+select name from emp where name like 'a%';
+
+
+
+Q . Write a program to find the sum is 8  by adding two values?
+
+ int i[]= [1,4,56,73,7,8,9];
+    target: 8
+	
+	i.sort();
+	if(i[0]<target){
+	int temp = i[0];
+	}else{
+	syso("elements are greter than target");
+	}
+	for(int ii=1;i<i.lenght;i++){
+		if(ii<target&&temp+){
+			
+		}else{
+		break;
+		}
+	}
+
+Q . Write Node example?
+LinkedList<Interger> la = new LinkedList<Interger>();
+
+linked list 5 6 2 3 1
+
+class NodeExam {
+	int data;
+	NodeExam next;
+	public 
+
+
+}
+
+
+Q . Calleable and runaable
+Q .how to creared singletone class 
+Q . how to change Node functionality
+
+Q .Find most duplicated number 
+int[] i = {2,4,8,2,1,3,1,1};
+
+public int findMostDup(int[] i){
+
+Arrays.sort(i);(1,1,1,2,2)
+
+
+Map<Integer, Integer> count = new HashMap<>();
+for(int j=0; j<i.lenght;j++){
+	if(i[j] == i[j++]){//
+		if(map.keyContaions(i[j])){
+			count.put(i[j],map.get(i[j])+1);
+		}else{
+			count.put(i[j],1);
+		}
+	}
+}
+int max = 0;
+for(int i : count){
+if(i > max){
+ max = i;
+}
+}
+
+return max;
+}
+
+int[] i = {10,5,2,7,1,9}; k =15
+
+//Arrays.sort(i);//{1,2,5,7,9,10}
+
+int arraySize =0;
+int tempArraySize =0;
+int count =0;
+
+for(int j=0;j< i.lengh; i++){
+
+count = i[j];
+tempArraySize++;
+for(int k=0;k<i.lenght;k++){
+	if(j != k){
+		count = count+i[k];
+		tempArraySize++;
+	}
+	if(count == k){
+		if(arraySize < tempArraySize){
+			arraySize = tempArraySize;
+		}
+		tempArraySize=0;
+		break;
+	}else if(count > k){
+
+	tempArraySize=0;
+		break;
+	}
+	
+}
+
+
+}
+syso("Max : "+arraySize);
+
+Q . find two number how's sum equals to 10
+
+int[] al= {1,5,2,4,8,0}; sum = 10;
+
+for(int i=0; i<al.lenght;i++ ){
+
+for(int k=0;k<al.lenght;k++){
+if(k != i &&(al[k]+al[i]==10)){
+syso(al[k]+"+"al[i])
+}
+}
+
+}
+
+
+
+
+Q . How to find emplyoyee details who's age grater than 40 by using streams
+al.stream().filter(e-> e.age>40).colletor(Collections.Map);
+
+List<String> list = al.stream().map(()->e.firstname+":"+e.lastname).collector(Collections.List);
+
+
+ArrayList al = Arrays.asList("10", "20");
+
+
+Q . How to create custome exceptions
+Class CustExcepation extends Excepation{
+	public CustExcepation(){
+		syso("Cust Exc);
+	}
+}
+
+
+catch(Exception e){
+ throw new CustExcepation();
+}
+
+Q . How to send data to client by using web services?
+
+ResponseEntity.allt("Exception","");
+
+Q . What is AOP point cut and join cut
+<aop-asptet point-cut="com.altimetrik.service.UserService.createUser(..)"
+
+
+
+class AopClass extend Aspte{
+
+
+}
+
+
+Public class User implements Comparable{
+id,
+name,
+email
+
+public int compare(Object 0){
+User u= (User)o;
+if(this.d==u.id){
+retrun 0
+}else if(this.d<u.id){
+retun -1;
+}
+
+}
+
+}
+
+
+UserService {
+
+public boolean createUser(User user) {
+
+}
+
+
+Q . Get product details by using streams, product category = book and price less than 100  
+
+Product
+id,
+name,
+category,
+price
+
+public Product getCheapestProduct(List<Productproducts> al) {
+
+List<Product> map =  al.stream().filter(p->(p.category.equals("book") &&p.price<100)).collertor(Collections.List<Product>);
+}
+
+
+Q . How to skip final block to execute?
+try(){
+
+}
+
+Q . What is singleton class with thread safe
+enum Employee extends Clonable{
+
+static Emloyee ee;
+
+private Employee(){}
+
+public Employee getInstance(){
+
+	synchronized(this){
+	if(ee == null){
+		ee = new Emloyee();
+	}
+	return ee;
+	}
+}
+
+Q . How to privent object to clone
+public Object clone(){
+ return ee;
+}
+
+}
+
+
+Q . How to find marks avg?
+Select s.sid, s.sname, sum(m.marks)/100 as avg from student s, martks m where s.sid= m.sid group by sid,name;
+
+Q . Singleton?
+class Employee{
+	private Employee(){
+	
+	}
+
+	public static Employee getInstance(){
+		return new Employee();
+	}
+}
+
+
+
+
+Q . Write a progrma to find if the number is odd or even.
+
+input : { 43,56,23,15}
+
+for(int i = 0 ; i< input.lenth; i++){
+	if(input[i] % 2 == 0){
+		syso ("Event : "+input[i] )
+	
+	}else{
+		syso ("Odd : "+input[i] )
+	}
+
+}
+ 
+
+
+Servlet
+Q. Spring Flow or SpringBoot Flow
+Q . http protocal type (get, post, put and delete)
+Q . Diff post and put?
+Q . how to send dat from controller to jsp
+
+Spring:
+Q . What is IOC?
+Q . What is depency injection?
+Q . What is BeanFactory?
+Q . What is Qualifier Annotation?
+Q . What are the annotaions available in Spring or SpringBoot?
+Q . How DB configuration in Spring or SpringBoot?
+Q . Diff between @Component and @Bean
+Q . What is ModelAndView
+
+
+SpringBoot:
+Q . Diff between spring and springboot?
+Q . Springboot features?
+Q . Springboot flow?
+Q . How to connect DB in Springboot?
+
+Hibernate:
+Q . What is ORM?
+Q . How to configure Hibernate in SpringBoot?
+Q . What is lazy loading and agracive loading?
+Q . What is diff between load() and get();
+
+SQL:
+Q . Print employee details who's salary are same?
+Q . Print Max salary?
+Q . Print Max second salary?

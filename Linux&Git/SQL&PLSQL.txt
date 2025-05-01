@@ -1,0 +1,56 @@
+CURSOR : 
+In Oracle, a cursor helps you go through data from a query one row at a time, letting you do things to each row individually. It's like a special tool for handling lots of information neatly and in order
+
+TO_CHAR : the TO_CHAR function is used to convert a value of any datatype to a string format, usually used to convert a date datatype to string format like TO_CHAR(SYSDATE, 'DD-MON-YYYY HH24:MI:SS')- if var is null, output is also null.
+ROUND:  the ROUND function is used to round a numeric value to a specified number of decimal places or to the nearest integer like : ROUND(numeric_expression [, decimal_places])
+ex-1: SELECT ROUND(15.76) AS rounded_value FROM dual;-- Result: 16
+ex-2: SELECT ROUND(15.763, 2) AS rounded_value FROM dual;-- Result: 15.76
+
+INTEGER vs PLS_INTEGER: both are same, datatypes in oracle, PLS_INTEGER is optimized for performance and more efficient for memory allocation and performance for certain operations and recommended where in performing integer arithmetic, especially in loops and calculations where performance is critical.
+where as INTEGER is used for general-purpose integer operations within SQL queries or when compatibility with other database systems is a concern,
+
+REPLACE : the REPLACE function is used to replace all occurrences of a substring within a string with another substring.
+like REPLACE(original_string, substring_to_replace, replacement_string)
+ex: SELECT REPLACE('hello world', 'o', '0') AS replaced_string FROM dual; -- result : hello w0rld
+ SELECT REPLACE('hello world', 'o', null) AS replaced_string FROM dual; -- result : hello wrld
+
+LISTAGG:the LISTAGG function is used to aggregate multiple rows of data into a single string
+like : LISTAGG(expression, delimiter) WITHIN GROUP (ORDER BY order_expression)
+ex: SELECT LISTAGG(F_CODE, ',') WITHIN GROUP (ORDER BY NULL) from  T_COUNTRY_AREA where F_AREA = 'CentralEasternEurope'
+	--result : AL,AR,AM,AW,AT,AZ,BS,BY,BA
+
+NOT : NOT operator can be used to negate a condition or expression.
+NVL : NVL function is used to replace NULL values with a specified default value.
+ LIKE : NVL(expression, default_value)
+EX:NVL(in_row_cnt, 0) 
+EX: SELECT NVL(salary, 0) AS adjusted_salary FROM employees;
+
+VARRAY stands for "variable-size array." It is a collection data type that allows you to store a fixed number of elements of the same data type in a single column of a table.
+ VARRAY collections have a method called EXTEND, which is used to increase the size of the collection by a specified number of elements.
+
+SUBSTR: the SUBSTR function is used to extract a substring from a string. It allows you to specify the starting position and optionally the length of the substring to be extracted like SUBSTR(string_expression, start_position, [length])
+ex: SELECT SUBSTR('Hello World', 7) AS result FROM dual;-- Result: "World"
+INSTR :  the INSTR function is used to find the position of a substring within a string. It returns the position (index) in the string where the substring begins, or 0 if the substring is not found like : INSTR(string, substring [, start_position [, nth_appearance]])
+ex:SELECT INSTR('Hello World', 'World') AS position FROM dual;-- Result: 7
+
+ROWTYPE: ROWTYPE is a composite data type that represents a row in a database table or the result of a query. It is used to declare variables that can hold entire rows of data from a table or cursor result set.
+
+
+
+
+
+
+
+
+
+
+
+https://localreports.ivycomptech.co.in/pls/trunkicezecash/p_r_process_alerts?in_user_id=bz_bzJunnu3895930&in_user_Alert_id=321623840&in_type=rmc_docupload&in_action=noframe
+
+https://localreports.ivycomptech.co.in/pls/trunkicezecash/p_r_process_alerts?
+in_user_id=bz_bzJunnu3895930
+in_user_Alert_id=321623840
+in_type=rmc_docupload
+in_action=noframe
+
+
